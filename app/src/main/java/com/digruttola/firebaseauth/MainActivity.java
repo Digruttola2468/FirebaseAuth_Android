@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btRegistrarse,btLogIn;
     private EditText editEmail,editPassword;
 
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FireBaseAuthentication authentication = new FireBaseAuthentication();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(verifyEditTexts()){
-                    mAuth.signInWithEmailAndPassword(editEmail.getText().toString(), editPassword.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Intent i = new Intent(MainActivity.this, InfoUserActivity.class);
-                                    startActivity(i);
-                                } else {
-                                    Toast.makeText(MainActivity.this,"No existe",Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                    authentication.iniciarSesion(MainActivity.this,editEmail.getText().toString(), editPassword.getText().toString());
                 }
 
             }
@@ -69,11 +59,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
+
         if(currentUser != null){
-            Intent i = new Intent(this, InfoUserActivity.class);
+            Intent i = new Intent(MainActivity.this,InfoUserActivity.class);
+            i.putExtra("UID",currentUser.getUid());
             startActivity(i);
+            Log.d("TAG", "UID: " + currentUser.getUid());
         }
     }
 

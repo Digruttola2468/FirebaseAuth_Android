@@ -15,7 +15,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class InfoUserActivity extends AppCompatActivity {
 
     private Button btSignOut;
-    private TextView viewEmail,viewNombre,viewTelefono;
+    private TextView viewEmail,viewNombre, viewEdad;
+
+    private FireBaseCloud cloud = new FireBaseCloud();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +27,11 @@ public class InfoUserActivity extends AppCompatActivity {
         btSignOut = findViewById(R.id.bt_userInfo_cerrarSesion);
         viewEmail = findViewById(R.id.txt_email);
         viewNombre = findViewById(R.id.txt_nombre);
-        viewTelefono = findViewById(R.id.txt_telefono);
+        viewEdad = findViewById(R.id.txt_edad);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        viewEmail.setText(user.getEmail());
-        viewNombre.setText(user.getDisplayName());
-        viewTelefono.setText(user.getPhoneNumber());
+        String UID = getIntent().getExtras().get("UID").toString();
+        cloud.buscarPorUID(UID,viewEmail,viewNombre,viewEdad);
 
-        Log.d("",user.getDisplayName() + user.getEmail() + user.getPhoneNumber());
 
         btSignOut.setOnClickListener(new View.OnClickListener() {
             @Override

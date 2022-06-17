@@ -37,7 +37,7 @@ public class RegistrarseActivity extends AppCompatActivity {
                     String name = editNombre.getText().toString();
                     String edad = editEdad.getText().toString();
 
-                    auth.registrarse(RegistrarseActivity.this,email,password);
+                    auth.registrarse(RegistrarseActivity.this,email,password,name,edad);
                 }
             }
         });
@@ -57,5 +57,11 @@ public class RegistrarseActivity extends AppCompatActivity {
                 !editPassword.getText().toString().equals("") &&
                 !editNombre.getText().toString().equals("") &&
                 !editEdad.getText().toString().equals("");
+    }
+     void cleanEditTexs(){
+        editEmail.setText("");
+        editPassword.setText("");
+        editNombre.setText("");
+        editEdad.setText("");
     }
 }

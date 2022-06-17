@@ -39,12 +39,12 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_email" />
 
     <TextView
-        android:id="@+id/txt_telefono"
+        android:id="@+id/txt_edad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
-        android:text="telefono"
+        android:text="edad"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_nombre" />
