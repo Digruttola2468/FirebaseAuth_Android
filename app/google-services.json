@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "667328101116",
+    "project_id": "fir-auth-974a3",
+    "storage_bucket": "fir-auth-974a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667328101116:android:b9dbe967ba0c1a42bf7579",
+        "android_client_info": {
+          "package_name": "com.digruttola.firebaseauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667328101116-2kcqoc259scjobhrms736n1gis599430.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCq-_l8TPeps0vaXfAva6Q86SYOPEihAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667328101116-2kcqoc259scjobhrms736n1gis599430.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
